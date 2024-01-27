@@ -25,6 +25,12 @@ func _process(delta: float) -> void:
 	var direction : Vector3 = stomp_away_direction * -1 if is_alerted else stomp_away_direction
 	var move_speed : float
 	
+	var yaw = atan2(direction.x, direction.z)
+
+	var pitch = asin(direction.y)
+	
+	global_rotation = Vector3(-pitch, yaw, 0)
+	
 	if is_in_room and relax_timer > 0 :
 		move_speed = 0
 	elif is_alerted:
@@ -36,9 +42,12 @@ func _process(delta: float) -> void:
 	
 	stomping_sound_timer += delta
 	if move_speed > 0:
+		$SophiaSkin.move()
 		if stomping_sound_timer >= stomping_sound_interval / ( 2.0 if is_alerted else 1.0):
 			play_stomping_sound()
 			stomping_sound_timer = 0.0
+	else : 
+		$SophiaSkin.idle()
 	print(transform)
 
 func play_stomping_sound() -> void:
@@ -48,4 +57,5 @@ func play_stomping_sound() -> void:
 
 func _ready():
 	transform.origin = stomp_away_direction * initial_distance
+	$SophiaSkin.move()
 	pass
