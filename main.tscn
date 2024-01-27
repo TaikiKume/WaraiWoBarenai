@@ -8,7 +8,7 @@
 [node name="Root" type="Node3D"]
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 6)
+transform = Transform3D(1, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 6, 10)
 
 [node name="LaughterProgress" type="ProgressBar" parent="MainCamera"]
 offset_left = 47.0
