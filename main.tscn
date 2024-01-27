@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=16 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -9,6 +9,11 @@
 [ext_resource type="Material" uid="uid://b5w4slquha3nf" path="res://wood.tres" id="6_lj2re"]
 [ext_resource type="ArrayMesh" uid="uid://rji00jcpuitl" path="res://Room/door.obj" id="7_gcqta"]
 [ext_resource type="ArrayMesh" uid="uid://bqnd78pbcru5f" path="res://Room/fire_place.obj" id="9_t4o0c"]
+[ext_resource type="ArrayMesh" uid="uid://b8c1btglkynfs" path="res://Room/carpet.obj" id="10_723ts"]
+[ext_resource type="ArrayMesh" uid="uid://bywsatnvbheiu" path="res://Room/table_with_one_cloths.obj" id="11_y57of"]
+[ext_resource type="ArrayMesh" uid="uid://bqkm77gv8x5w5" path="res://Room/vertical_barrel.obj" id="12_s873t"]
+[ext_resource type="ArrayMesh" uid="uid://bu5clsnve5y8f" path="res://Room/bar.obj" id="13_0ospq"]
+[ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
@@ -199,11 +204,55 @@ surface_material_override/1 = ExtResource("6_lj2re")
 surface_material_override/2 = ExtResource("6_lj2re")
 
 [node name="Door" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5054, -1.01453, -1.11766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5054, -0.351024, -1.11766)
 mesh = ExtResource("7_gcqta")
 
 [node name="FirePlace" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95684, -0.392172, -5.54926)
+transform = Transform3D(1.45123, 0, 0, 0, 1.45123, 0, 0, 0, 1.45123, -9.88206, -0.482966, -5.13016)
 mesh = ExtResource("9_t4o0c")
+
+[node name="Carpet" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.60058, 0, -0.0211826, 0, 1, 0, 0.0315013, 0, 1.74873, -5.11271, -0.544737, 1.39913)
+mesh = ExtResource("10_723ts")
+
+[node name="TableWithOneCloths" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71422, 0, 4.44176)
+mesh = ExtResource("11_y57of")
+
+[node name="VerticalBarrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -3.13492, -0.00353026, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.18946, -0.00353026, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -5.34052, -0.00353026, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.82462, 1.38274, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -3.7172, 1.38274, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="Bar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38243, -1.19209e-07, -1.49655)
+mesh = ExtResource("13_0ospq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58368, 4.36139, -1.36843)
+light_color = Color(0.811765, 0.894118, 0.74902, 1)
+light_energy = 3.586
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 10.65
+
+[node name="BurningWood" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.203, 0, -4.64135)
+mesh = ExtResource("14_sga5x")
 
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]

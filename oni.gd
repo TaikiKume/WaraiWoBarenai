@@ -7,6 +7,7 @@ extends StaticBody3D
 @export var initial_distance : float = 100
 @export var relax_interval : float = 5.0
 @export var room_burst_distance : float = 10.0
+@export var max_distance : float =240
 
 var is_alerted : bool = false
 var relax_timer : float = 0.0
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 	
 	global_rotation = Vector3(-pitch, yaw, 0)
 	
-	if is_in_room and relax_timer > 0 :
+	if (is_in_room and relax_timer > 0) or (global_transform.origin.distance_to(Vector3.ZERO) > max_distance and not is_alerted) :
 		move_speed = 0
 	elif is_alerted:
 		move_speed = speed * 2.0 
