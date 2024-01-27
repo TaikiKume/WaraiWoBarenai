@@ -10,8 +10,11 @@ extends Node3D
 #ピッチの上がる速さ
 @export var addPitchScaleSpeed : float = 0.1
 
+var initialVolume : float
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	initialVolume = $AudioStreamPlayer.volume_db
 	pass # Replace with function body.
 
 
@@ -24,8 +27,10 @@ func _process(delta):
 			$AudioStreamPlayer.pitch_scale+=0.1*delta
 			get_parent()._addLaughRadius(laughSpreadSpeed*delta)
 			get_parent()._removeLaughGagePoint(-laughPointSpeed*delta)
+			print(get_parent().laughRadius   )
 	else:
 		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.volume_db = initialVolume
 		$AudioStreamPlayer.pitch_scale=1
 		get_parent()._resetLaughRadius()
 
