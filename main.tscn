@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdr6u28mxy1nk"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
+[ext_resource type="PackedScene" uid="uid://btfwplr3egwdi" path="res://oni.tscn" id="2_58pul"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 3.3571, 1.20015)
+
+[node name="LevelController" type="Node" parent="."]
+script = ExtResource("1_ly0cm")
+
+[node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
