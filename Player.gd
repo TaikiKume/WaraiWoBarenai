@@ -2,8 +2,8 @@ extends Node3D
 #笑い声の広がる速さ
 @export var laughSpreadSpeed :float = 1.0
 
-#笑い声ゲージの減る速さ
-@export var laughPointSpeed : float=2.0
+#笑い声ゲージの増える速さ
+@export var laughPointSpeed : float=10.0
 
 #声の大きさが上がる速さ
 @export var addVolumeSpeed :float = 2.0
@@ -26,7 +26,7 @@ func _process(delta):
 			$AudioStreamPlayer.volume_db +=2*delta
 			$AudioStreamPlayer.pitch_scale+=0.1*delta
 			get_parent()._addLaughRadius(laughSpreadSpeed*delta)
-			get_parent()._removeLaughGagePoint(-laughPointSpeed*delta)
+			get_parent()._addLaughGagePoint(laughPointSpeed*delta)
 			print(get_parent().laughRadius   )
 	else:
 		$AudioStreamPlayer.stop()
