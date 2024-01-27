@@ -11,6 +11,7 @@ extends Node3D
 @export var addPitchScaleSpeed : float = 0.1
 
 var initialVolume : float
+var pushTime : float =0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,17 +21,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("Laugh")):
+	if(!get_parent()._getisStartGame()):
+				return 1;
+	if(Input.is_action_just_pressed("Laugh")):   
 		$AudioStreamPlayer.play()
 	if (Input.is_action_pressed("Laugh")):
 			$AudioStreamPlayer.volume_db +=2*delta
 			$AudioStreamPlayer.pitch_scale+=0.1*delta
 			get_parent()._addLaughRadius(laughSpreadSpeed*delta)
-			get_parent()._addLaughGagePoint(laughPointSpeed*delta)
-			print(get_parent().laughRadius   )
+			get_parent()._addLaughGagePoint((pushTime*0.5+laughPointSpeed)*delta)
+			pushTime+=delta;
 	else:
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.volume_db = initialVolume
 		$AudioStreamPlayer.pitch_scale=1
+		pushTime=0.0
 		get_parent()._resetLaughRadius()
 

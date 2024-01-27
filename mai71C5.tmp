@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdr6u28mxy1nk"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
+[ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
+[ext_resource type="PackedScene" uid="uid://btfwplr3egwdi" path="res://oni.tscn" id="2_58pul"]
+[ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
+
+[node name="Root" type="Node3D"]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 6)
+
+[node name="LaughterProgress" type="ProgressBar" parent="MainCamera"]
+offset_left = 53.0
+offset_top = 57.0
+offset_right = 1102.0
+offset_bottom = 84.0
+script = ExtResource("1_ruh3q")
+
+[node name="TimerText" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 24.0
+offset_right = 114.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = -1.0
+offset_right = 114.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 17
+text = "残り時間
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText")]
+script = ExtResource("1_ly0cm")
+progressbar = NodePath("../MainCamera/LaughterProgress")
+timerText = NodePath("../MainCamera/TimerText")
+
+[node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
+
+[node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
+laughSpreadSpeed = 50.0
+laughPointSpeed = 5.0
+addVolumeSpeed = 2.0
+addPitchScaleSpeed = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]

@@ -15,6 +15,16 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[importer_defaults]
+
+wavefront_obj={
+"force_disable_mesh_compression": false,
+"generate_tangents": true,
+"offset_mesh": Vector3(0, 0, 0),
+"optimize_mesh": true,
+"scale_mesh": Vector3(1, 1, 1)
+}
+
 [input]
 
 Laugh={

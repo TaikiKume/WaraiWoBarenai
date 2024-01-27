@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b44clgq8qou8j"
+path="res://.godot/imported/cup_of_beer.obj-fed3b74d4bc86563272361b65f94d77e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cup_of_beer.obj-fed3b74d4bc86563272361b65f94d77e.mesh"]
+
+source_file="res://Room/cup_of_beer.obj"
+dest_files=["res://.godot/imported/cup_of_beer.obj-fed3b74d4bc86563272361b65f94d77e.mesh", "res://.godot/imported/cup_of_beer.obj-fed3b74d4bc86563272361b65f94d77e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
