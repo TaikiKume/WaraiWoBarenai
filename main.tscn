@@ -15,4 +15,4 @@ script = ExtResource("1_ly0cm")
 [node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
-laughSpreadSpeed = 1000.0
+laughSpreadSpeed = 50.0
