@@ -1,10 +1,10 @@
 extends StaticBody3D
 
-@export var speed : float = 50.0
+@export var speed : float = 10.0
 @export var stomping_sound_timer : float = 0.0
 @export var stomping_sound_interval : float = 0.5 
 @export var stomp_away_direction : Vector3 = Vector3(-1,0,0)
-@export var initial_distance : float = 500
+@export var initial_distance : float = 100
 @export var relax_interval : float = 5.0
 @export var room_burst_distance : float = 10.0
 
