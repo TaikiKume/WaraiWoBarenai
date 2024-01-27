@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kdidxejgly6v"]
+[gd_scene load_steps=3 format=3 uid="uid://kdidxejgly6v"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_3xfl0"]
+[ext_resource type="FontFile" uid="uid://dewb8w3jpive4" path="res://font/Stamp Amy PK V Two.otf" id="2_smlug"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_3xfl0")
@@ -25,8 +26,9 @@ offset_left = -293.0
 offset_right = 293.0
 offset_bottom = 282.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 80
-text = "GameOver
+theme_override_fonts/font = ExtResource("2_smlug")
+theme_override_font_sizes/font_size = 88
+text = "You were too loud
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -44,6 +46,7 @@ offset_right = 200.0
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_smlug")
 theme_override_font_sizes/font_size = 50
 text = "Restart
 "
@@ -61,6 +64,7 @@ offset_right = 200.0
 offset_bottom = 150.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_smlug")
 theme_override_font_sizes/font_size = 50
 text = "BackToTitle
 "
