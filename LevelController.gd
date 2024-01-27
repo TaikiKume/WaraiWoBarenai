@@ -1,12 +1,13 @@
 extends Node
+@export var progressbar: ProgressBar
 #笑い声の範囲
 var laughRadius : float = 0.0
 #笑いゲージ
 var laughGagePoint : float = 0.0
 #経過時間
-var progressTimer : float =0.0
+var progressTimer : float = 0.0
 #クリア時間
-@export var gameOverTime : float =60.0
+@export var gameOverTime : float = 60.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	progressbar.value = laughGagePoint
 	print(laughGagePoint)
 #Clear!!!!
 	if(laughGagePoint>=100):
