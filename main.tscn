@@ -116,7 +116,7 @@ mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 5.71216, -11.7702, 1.31925, 2.51264)
+transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 9.36358, -11.7702, 1.31925, 4.24221)
 material_override = ExtResource("6_f2mwg")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
