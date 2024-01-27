@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dljwc2flq6qml"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ps5xe"]
+[ext_resource type="AudioStream" uid="uid://chacac5ybnkoj" path="res://LaughVoice.wav" id="2_2iiih"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1s654"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_ps5xe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1s654")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2iiih")
+pitch_scale = 0.41
