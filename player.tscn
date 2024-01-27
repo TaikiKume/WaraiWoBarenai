@@ -13,5 +13,5 @@ mesh = SubResource("CapsuleMesh_1s654")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xol11")
-volume_db = -50.0
+volume_db = -38.979
 pitch_scale = 0.41

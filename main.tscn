@@ -1,28 +1,164 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=8 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
 [ext_resource type="PackedScene" uid="uid://btfwplr3egwdi" path="res://oni.tscn" id="2_58pul"]
 [ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
+[ext_resource type="ArrayMesh" uid="uid://0rxedu130skt" path="res://Room/floor_tiles.obj" id="5_1j40x"]
+[ext_resource type="Material" uid="uid://b5w4slquha3nf" path="res://wood.tres" id="6_lj2re"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
 [node name="Root" type="Node3D"]
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 6)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, -2.27905, 3.67359, 6)
 
 [node name="LaughterProgress" type="ProgressBar" parent="MainCamera"]
-offset_left = 47.0
-offset_top = 41.0
-offset_right = 1096.0
-offset_bottom = 68.0
+offset_left = 53.0
+offset_top = 57.0
+offset_right = 1102.0
+offset_bottom = 84.0
 script = ExtResource("1_ruh3q")
 
-[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar")]
+[node name="TimerText" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 24.0
+offset_right = 114.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = -1.0
+offset_right = 114.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 17
+text = "残り時間
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDownText" type="Label" parent="MainCamera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainCamera"]
+
+[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText", "countDownText", "timer")]
 script = ExtResource("1_ly0cm")
 progressbar = NodePath("../MainCamera/LaughterProgress")
+timerText = NodePath("../MainCamera/TimerText")
+countDownText = NodePath("../MainCamera/CountDownText")
+timer = NodePath("../Timer")
 
 [node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
 laughSpreadSpeed = 50.0
-laughPointSpeed = 5.0
+laughPointSpeed = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="FloorTiles2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, 0.51183)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, 2.71012)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, 4.99633)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, 7.33342)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, 9.65335)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, -10.9807)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles8" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, -8.78244)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles9" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, -6.49624)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles10" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, -4.15914)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorTiles10"]
+transform = Transform3D(13.2008, 0, 0, 0, 1, 0, 0, 0, 15.5799, 0.0430851, -0.507106, 0.226891)
+material_override = ExtResource("6_lj2re")
+mesh = SubResource("BoxMesh_d7e1t")
+
+[node name="FloorTiles11" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.31499, -1.01223, -1.83922)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]
