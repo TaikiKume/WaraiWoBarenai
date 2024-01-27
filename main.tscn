@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=5 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
+[ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
 [ext_resource type="PackedScene" uid="uid://btfwplr3egwdi" path="res://oni.tscn" id="2_58pul"]
 [ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
 
@@ -9,10 +10,19 @@
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 6)
 
-[node name="LevelController" type="Node" parent="."]
+[node name="LaughterProgress" type="ProgressBar" parent="MainCamera"]
+offset_left = 47.0
+offset_top = 41.0
+offset_right = 1096.0
+offset_bottom = 68.0
+script = ExtResource("1_ruh3q")
+
+[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar")]
 script = ExtResource("1_ly0cm")
+progressbar = NodePath("../MainCamera/LaughterProgress")
 
 [node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
 laughSpreadSpeed = 50.0
+laughPointSpeed = 5.0
