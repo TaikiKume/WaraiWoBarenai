@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=31 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -19,6 +19,9 @@
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 [ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
 [ext_resource type="ArrayMesh" uid="uid://bhaigb0ijcsyu" path="res://Room/window.obj" id="19_4kdbk"]
+[ext_resource type="ArrayMesh" uid="uid://c48r8slibdetf" path="res://Room/Cloud.obj" id="20_wcpn2"]
+[ext_resource type="Material" uid="uid://bh84xunv422vl" path="res://Cloud.tres" id="21_rosuu"]
+[ext_resource type="Script" path="res://Cloud2.gd" id="22_2l2yj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
@@ -74,6 +77,9 @@ shader_parameter/random_scale = 30.6
 shader_parameter/noise_scale = 0.01
 
 [sub_resource type="Environment" id="Environment_v81vl"]
+background_mode = 1
+background_color = Color(0.231373, 0.603922, 0.737255, 1)
+sky_custom_fov = 74.3
 ssao_radius = 11.35
 ssao_intensity = 8.9
 ssao_horizon = 1.0
@@ -83,11 +89,14 @@ sdfgi_read_sky_light = false
 glow_enabled = true
 glow_bloom = 0.59
 glow_blend_mode = 0
-fog_enabled = true
-fog_light_color = Color(0.392157, 0.596078, 0.568627, 1)
+fog_light_color = Color(0.776471, 0.388235, 0.67451, 1)
 fog_light_energy = 0.07
 volumetric_fog_enabled = true
 volumetric_fog_length = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oehw"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.21
 
 [node name="Root" type="Node3D"]
 
@@ -368,7 +377,7 @@ shadow_enabled = true
 omni_range = 10.65
 
 [node name="BurningWood" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.203, 0, -4.64135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.82501, -0.33008, -4.96898)
 mesh = ExtResource("14_sga5x")
 
 [node name="FogVolume" type="FogVolume" parent="."]
@@ -380,6 +389,7 @@ environment = SubResource("Environment_v81vl")
 
 [node name="LightStand" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.46683, 0, 0, 0, 2.46683, 0, 0, 0, 2.46683, -4.88628, 5.63606, -1.39995)
+material_override = SubResource("StandardMaterial3D_4oehw")
 cast_shadow = 0
 mesh = ExtResource("18_ra7ls")
 
@@ -418,6 +428,101 @@ omni_range = 31.896
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8928, 0.662174, -7.58063)
 mesh = ExtResource("19_4kdbk")
+
+[node name="Cloud" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -4.81174, 4.76837e-07, -48.415)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -1.06814, -2.5792, -37.5985)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 1.32731, 1.51726, -39.8855)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -0.324403, 1.51726, -51.5948)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.8146, 1.51726, -51.5948)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -16.6209, 1.51726, -71.1201)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.1321, 6.33511, -71.1201)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.1321, -2.67879, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -18.2899, -2.67879, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -18.2899, 1.50745, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -12.1521, 1.50745, -37.959)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -12.1521, 1.50745, -80.5109)
+material_override = ExtResource("21_rosuu")
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -21.9739, 1.50745, -80.5109)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud16" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0191996, 0, -0.86087, 0, 0.538858, 0, 0.522107, 0, -0.0316569, -21.9739, 1.50745, -80.5109)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 0.123335, 5.52419, -41.5187)
+mesh = ExtResource("20_wcpn2")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 0.614099, 4.96824, -61.117)
+mesh = ExtResource("20_wcpn2")
+script = ExtResource("22_2l2yj")
 
 [connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]
