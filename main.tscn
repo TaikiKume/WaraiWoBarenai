@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=32 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -19,8 +19,9 @@
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 [ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
 [ext_resource type="ArrayMesh" uid="uid://bhaigb0ijcsyu" path="res://Room/window.obj" id="19_4kdbk"]
+[ext_resource type="AudioStream" uid="uid://bo6jaavwmof8r" path="res://models/glass-breaking-93803.mp3" id="20_jb7dj"]
 [ext_resource type="ArrayMesh" uid="uid://c48r8slibdetf" path="res://Room/Cloud.obj" id="20_wcpn2"]
-[ext_resource type="Material" uid="uid://bh84xunv422vl" path="res://Cloud.tres" id="21_rosuu"]
+[ext_resource type="Material" path="res://Cloud.tres" id="21_rosuu"]
 [ext_resource type="Script" path="res://Cloud2.gd" id="22_2l2yj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
@@ -430,6 +431,10 @@ omni_range = 31.896
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8928, 0.662174, -7.58063)
 mesh = ExtResource("19_4kdbk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Window"]
+stream = ExtResource("20_jb7dj")
+volume_db = 1.0
 
 [node name="Cloud" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -4.81174, 4.76837e-07, -48.415)

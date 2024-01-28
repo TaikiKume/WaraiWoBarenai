@@ -20,11 +20,15 @@ var count : int =0
 @export var Door : MeshInstance3D
 @export var DoorLight : OmniLight3D
 @export var DoorLight2 : OmniLight3D
+@export var RoomWindow : MeshInstance3D
+@export var WindowLight : OmniLight3D
+@export var WindowLight2 : OmniLight3D
 @export var RoomLight : OmniLight3D
 
 signal game_startNotify
 
 var DoorBroken : bool = false
+var WindowBroken : bool = false
 
 var Onis : Array = []
 
@@ -44,6 +48,20 @@ func _ready():
 	oni_instance.max_distance = Global.difficulty_onis_level1[current_difficulty][7]
 	add_child(oni_instance)
 	Onis.append(oni_instance)
+	if Global.level == 1:
+		var oni_instance2 = Oni.instantiate()
+		oni_instance2.global_position = Vector3(-6.8, 0.8, -8)
+		oni_instance2.speed = Global.difficulty_onis_level2[current_difficulty][0]
+		oni_instance2.alert_speed_mult = Global.difficulty_onis_level2[current_difficulty][1]
+		oni_instance2.stomping_sound_interval = Global.difficulty_onis_level2[current_difficulty][2]
+		oni_instance2.stomp_away_direction = Global.difficulty_onis_level2[current_difficulty][3]
+		oni_instance2.initial_distance = Global.difficulty_onis_level2[current_difficulty][4]
+		oni_instance2.relax_interval = Global.difficulty_onis_level2[current_difficulty][5]
+		oni_instance2.room_burst_distance = Global.difficulty_onis_level2[current_difficulty][6]
+		oni_instance2.max_distance = Global.difficulty_onis_level2[current_difficulty][7]
+		oni_instance2.windowOni = true
+		add_child(oni_instance2)
+		Onis.append(oni_instance2)
 	pass
 
 func _process(delta):
@@ -79,17 +97,28 @@ func _process(delta):
 			RoomLight.light_color.h = 0
 			RoomLight.light_color.s = 0
 
+		if(oni == Onis[0]):
+			if(oni.global_transform.origin.length()<oni.room_burst_distance*1.2&&not DoorBroken):
+				DoorBroken = true
+				Door.visible = false
+				Door.get_child(0).playing=true
+				DoorLight.light_energy =16
+				DoorLight2.light_energy =16
 
-		if(oni.global_transform.origin.length()<oni.room_burst_distance*1.2&&not DoorBroken):
-			DoorBroken = true
-			Door.visible = false
-			Door.get_child(0).playing=true
-			DoorLight.light_energy =16
-			DoorLight2.light_energy =16
+			if(oni.global_transform.origin.length()>oni.room_burst_distance*1.2&&DoorBroken):
+				DoorBroken = false
+				Door.visible = true
+		
+		if(Onis.size() > 1 && oni == Onis[1]):
+			if(oni.global_transform.origin.length()<oni.room_burst_distance*1.2&&not WindowBroken):
+				WindowBroken = true
+				RoomWindow.visible = false
+				RoomWindow.get_child(0).playing=true
+				WindowLight.light_energy = 16
 
-		if(oni.global_transform.origin.length()>oni.room_burst_distance*1.2&&DoorBroken):
-			DoorBroken = false
-			Door.visible = true
+			if(oni.global_transform.origin.length()>oni.room_burst_distance*1.2&&WindowBroken):
+				WindowBroken = false
+				RoomWindow.visible = true
 	
 	if DoorLight.light_energy > 0:
 		DoorLight.light_energy -= 10*delta
@@ -97,6 +126,11 @@ func _process(delta):
 	else:
 		DoorLight.light_energy = 0
 		DoorLight2.light_energy = 0
+		
+	if WindowLight.light_energy > 0:
+		WindowLight.light_energy -= 10*delta
+	else:
+		WindowLight.light_energy = 0
 	
 
 

@@ -8,6 +8,7 @@ extends StaticBody3D
 @export var relax_interval : float = 5.0
 @export var room_burst_distance : float = 10.0
 @export var max_distance : float = 240
+@export var windowOni : bool = false
 
 var stomping_sound_timer : float = 0.0
 
@@ -46,9 +47,14 @@ func _process(delta: float) -> void:
 	elif is_alerted:
 		move_speed = speed * alert_speed_mult 
 	else :
-		move_speed =speed
+		move_speed = speed
 
+	if windowOni and relax_timer > 0 and is_in_room:
+		global_position = Vector3(-6.8,0.8,-8)
+		global_rotation = Vector3(0,0,0)
 	global_transform.origin += direction * delta * move_speed
+	
+	print(global_position)
 	
 	stomping_sound_timer += delta
 	if move_speed > 0:
