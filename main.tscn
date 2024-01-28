@@ -148,7 +148,7 @@ text = "3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText", "countDownText", "timer", "Door", "DoorLight", "DoorLight2", "RoomLight")]
+[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText", "countDownText", "timer", "Door", "DoorLight", "DoorLight2", "RoomWindow", "WindowLight", "RoomLight")]
 script = ExtResource("1_ly0cm")
 progressbar = NodePath("../MainCamera/LaughterProgress")
 timerText = NodePath("../MainCamera/TimerText")
@@ -157,6 +157,8 @@ timer = NodePath("../Timer")
 Door = NodePath("../Door")
 DoorLight = NodePath("../DoorLight")
 DoorLight2 = NodePath("../DoorLight2")
+RoomWindow = NodePath("../Window")
+WindowLight = NodePath("../WindowLight")
 RoomLight = NodePath("../LightStand/RoomLight")
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
@@ -418,6 +420,10 @@ omni_range = 31.896
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8928, 0.662174, -7.58063)
 mesh = ExtResource("19_4kdbk")
+
+[node name="WindowLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.5, -7)
+light_energy = 0.0
 
 [connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]
