@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04kl1"]
 
-[sub_resource type="Animation" id="Animation_jv0oy"]
+[sub_resource type="Animation" id="Animation_bfvpx"]
 resource_name = "EdgeGrab"
 length = 1.06667
 loop_mode = 1
@@ -741,7 +741,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_ijrab"]
+[sub_resource type="Animation" id="Animation_pkblr"]
 resource_name = "Fall"
 length = 0.533333
 loop_mode = 1
@@ -1474,7 +1474,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_0vqdv"]
+[sub_resource type="Animation" id="Animation_07xlh"]
 resource_name = "Idle"
 length = 2.0
 loop_mode = 1
@@ -2207,7 +2207,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_7at2p"]
+[sub_resource type="Animation" id="Animation_86i3d"]
 resource_name = "Jump"
 length = 0.533333
 loop_mode = 1
@@ -2940,7 +2940,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_qaaxk"]
+[sub_resource type="Animation" id="Animation_pnuik"]
 resource_name = "Run"
 length = 0.6
 loop_mode = 1
@@ -3673,7 +3673,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_4a8se"]
+[sub_resource type="Animation" id="Animation_qycyw"]
 resource_name = "RunTiltL"
 length = 0.0333333
 tracks/0/type = "position_3d"
@@ -4405,7 +4405,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_5j7qo"]
+[sub_resource type="Animation" id="Animation_ocfir"]
 resource_name = "RunTiltR"
 length = 0.0333333
 tracks/0/type = "position_3d"
@@ -5137,7 +5137,7 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.579758, -0.382616, -0.396489, 0.600235)
 
-[sub_resource type="Animation" id="Animation_k42f2"]
+[sub_resource type="Animation" id="Animation_d8wky"]
 resource_name = "WallSlide"
 length = 0.533333
 loop_mode = 1
@@ -5870,16 +5870,16 @@ tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = PackedFloat32Array(0, 1, -0.0898415, -0.760331, -0.524915, 0.371872)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nw4mi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h05bi"]
 _data = {
-"EdgeGrab": SubResource("Animation_jv0oy"),
-"Fall": SubResource("Animation_ijrab"),
-"Idle": SubResource("Animation_0vqdv"),
-"Jump": SubResource("Animation_7at2p"),
-"Run": SubResource("Animation_qaaxk"),
-"RunTiltL": SubResource("Animation_4a8se"),
-"RunTiltR": SubResource("Animation_5j7qo"),
-"WallSlide": SubResource("Animation_k42f2")
+"EdgeGrab": SubResource("Animation_bfvpx"),
+"Fall": SubResource("Animation_pkblr"),
+"Idle": SubResource("Animation_07xlh"),
+"Jump": SubResource("Animation_86i3d"),
+"Run": SubResource("Animation_pnuik"),
+"RunTiltL": SubResource("Animation_qycyw"),
+"RunTiltR": SubResource("Animation_ocfir"),
+"WallSlide": SubResource("Animation_d8wky")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vapre"]
@@ -6178,7 +6178,7 @@ surface_material_override/2 = ExtResource("5_dfa6q")
 unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/../sophia")
 libraries = {
-"": SubResource("AnimationLibrary_nw4mi")
+"": SubResource("AnimationLibrary_h05bi")
 }
 tree_root = SubResource("AnimationNodeBlendTree_qa7x4")
 anim_player = NodePath("../sophia/AnimationPlayer")

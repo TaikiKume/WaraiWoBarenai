@@ -18,6 +18,16 @@
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
 [sub_resource type="Environment" id="Environment_v81vl"]
+ssao_radius = 11.35
+ssao_intensity = 8.9
+ssao_horizon = 1.0
+ssil_sharpness = 0.0
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_bloom = 0.59
+glow_blend_mode = 0
+fog_light_color = Color(0.392157, 0.596078, 0.568627, 1)
 volumetric_fog_enabled = true
 volumetric_fog_length = 1.0
 
@@ -241,7 +251,7 @@ transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -3.13492, -
 mesh = ExtResource("12_s873t")
 
 [node name="VerticalBarrel2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.18946, -0.00353026, -5.36571)
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.09092, 0.0246072, -5.42674)
 mesh = ExtResource("12_s873t")
 
 [node name="VerticalBarrel3" type="MeshInstance3D" parent="."]
@@ -283,7 +293,7 @@ omni_range = 10.65
 
 [node name="RoomLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73296, 4.41729, -1.49709)
-light_volumetric_fog_energy = 2.293
+light_volumetric_fog_energy = 0.0
 light_specular = 15.305
 shadow_enabled = true
 omni_range = 31.896
