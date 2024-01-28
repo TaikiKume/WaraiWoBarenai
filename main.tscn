@@ -19,7 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 [ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
 [ext_resource type="ArrayMesh" uid="uid://bhaigb0ijcsyu" path="res://Room/window.obj" id="19_4kdbk"]
-[ext_resource type="AudioStream" uid="uid://bo6jaavwmof8r" path="res://models/glass-breaking-93803.mp3" id="20_jb7dj"]
+[ext_resource type="AudioStream" uid="uid://bo6jaavwmof8r" path="res://se/glass-breaking-93803.mp3" id="20_jb7dj"]
 [ext_resource type="ArrayMesh" uid="uid://c48r8slibdetf" path="res://Room/Cloud.obj" id="20_wcpn2"]
 [ext_resource type="Material" path="res://Cloud.tres" id="21_rosuu"]
 [ext_resource type="Script" path="res://Cloud2.gd" id="22_2l2yj"]
