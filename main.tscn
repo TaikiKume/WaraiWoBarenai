@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=27 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -18,6 +18,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bu5clsnve5y8f" path="res://Room/bar.obj" id="13_0ospq"]
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 [ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
+[ext_resource type="ArrayMesh" uid="uid://bhaigb0ijcsyu" path="res://Room/window.obj" id="19_4kdbk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
@@ -197,7 +198,25 @@ mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -6.32489, 1.31924, -6.82183)
+transform = Transform3D(0.0343851, 0.0315038, -4.09238, 5.37993e-05, -22.1735, -0.00581232, 0.578111, 0.000189739, 0.243408, -9.88733, 1.31924, -7.59908)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0346369, 0.0315092, -3.71394, 5.41933e-05, -22.1773, -0.00527482, 0.582344, 0.000189771, 0.220899, -4.01882, 1.31924, -7.59908)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.000195654, -22.177, -0.0204427, -0.0346364, -0.122082, 3.71388, 0.582344, 0.000189771, 0.220899, -4.00823, 5.12899, -7.52698)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.000195654, -22.177, -0.0204427, -0.0346364, -0.122082, 3.71388, 0.582344, 0.000189771, 0.220899, -4.12293, -0.269877, -6.71083)
 material_override = SubResource("ShaderMaterial_7isw6")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
@@ -360,7 +379,7 @@ visible = false
 environment = SubResource("Environment_v81vl")
 
 [node name="LightStand" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.46683, 0, 0, 0, 2.46683, 0, 0, 0, 2.46683, -6.93138, 5.63606, -1.39995)
+transform = Transform3D(2.46683, 0, 0, 0, 2.46683, 0, 0, 0, 2.46683, -4.88628, 5.63606, -1.39995)
 cast_shadow = 0
 mesh = ExtResource("18_ra7ls")
 
@@ -395,6 +414,10 @@ light_volumetric_fog_energy = 0.0
 light_specular = 15.305
 shadow_enabled = true
 omni_range = 31.896
+
+[node name="Window" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8928, 0.662174, -7.58063)
+mesh = ExtResource("19_4kdbk")
 
 [connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]
