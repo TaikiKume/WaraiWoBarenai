@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://kdidxejgly6v"]
+[gd_scene load_steps=4 format=3 uid="uid://kdidxejgly6v"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_3xfl0"]
 [ext_resource type="FontFile" uid="uid://dewb8w3jpive4" path="res://font/Stamp Amy PK V Two.otf" id="2_smlug"]
+[ext_resource type="AudioStream" uid="uid://lnxw4w83vai7" path="res://se/BGM.mp3" id="3_ayjr4"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_3xfl0")
@@ -68,6 +69,10 @@ theme_override_fonts/font = ExtResource("2_smlug")
 theme_override_font_sizes/font_size = 50
 text = "BackToTitle
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ayjr4")
+autoplay = true
 
 [connection signal="pressed" from="Control/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/BackToTitleButton" to="." method="_on_back_to_title_button_pressed"]
