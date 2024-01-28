@@ -49,3 +49,9 @@ func _process(delta):
 		pushTime=0.0
 		get_parent()._resetLaughRadius()
 
+
+
+func _on_level_controller_game_start_notify():
+	if Input.is_action_pressed("Laugh"):
+		$AudioStreamPlayer.play()
+	pass # Replace with function body.
