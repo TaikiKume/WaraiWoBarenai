@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctybjy284tuun"]
+
+[ext_resource type="SpriteFrames" uid="uid://cusctqwgu7f1g" path="res://Effect.tres" id="1_8y30a"]
+[ext_resource type="Script" path="res://animation.gd" id="2_bw5n5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_8y30a")
+frame_progress = 0.288823
+script = ExtResource("2_bw5n5")

@@ -1,0 +1,539 @@
+[gd_scene load_steps=32 format=3 uid="uid://bdr6u28mxy1nk"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
+[ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
+[ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
+[ext_resource type="ArrayMesh" uid="uid://0rxedu130skt" path="res://Room/floor_tiles.obj" id="5_1j40x"]
+[ext_resource type="Shader" path="res://testwood.gdshader" id="6_45s26"]
+[ext_resource type="Material" uid="uid://bia0fnsj18xdo" path="res://Wall.tres" id="6_f2mwg"]
+[ext_resource type="Material" uid="uid://3oaiowhgr21g" path="res://wood.tres" id="6_lj2re"]
+[ext_resource type="ArrayMesh" uid="uid://rji00jcpuitl" path="res://Room/door.obj" id="7_gcqta"]
+[ext_resource type="Material" path="res://materials/concrete_hd/concrete.tres" id="7_m121n"]
+[ext_resource type="AudioStream" uid="uid://b4rreeeq16jen" path="res://se/explosion-6055.mp3" id="9_jkth0"]
+[ext_resource type="ArrayMesh" uid="uid://bqnd78pbcru5f" path="res://Room/fire_place.obj" id="9_t4o0c"]
+[ext_resource type="Material" uid="uid://bfrb8vc3v5v7a" path="res://darkwood.tres" id="9_y0n1d"]
+[ext_resource type="ArrayMesh" uid="uid://b8c1btglkynfs" path="res://Room/carpet.obj" id="10_723ts"]
+[ext_resource type="ArrayMesh" uid="uid://bywsatnvbheiu" path="res://Room/table_with_one_cloths.obj" id="11_y57of"]
+[ext_resource type="ArrayMesh" uid="uid://bqkm77gv8x5w5" path="res://Room/vertical_barrel.obj" id="12_s873t"]
+[ext_resource type="ArrayMesh" uid="uid://bu5clsnve5y8f" path="res://Room/bar.obj" id="13_0ospq"]
+[ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
+[ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
+[ext_resource type="ArrayMesh" uid="uid://bhaigb0ijcsyu" path="res://Room/window.obj" id="19_4kdbk"]
+[ext_resource type="AudioStream" uid="uid://bo6jaavwmof8r" path="res://se/glass-breaking-93803.mp3" id="20_jb7dj"]
+[ext_resource type="ArrayMesh" uid="uid://c48r8slibdetf" path="res://Room/Cloud.obj" id="20_wcpn2"]
+[ext_resource type="Material" path="res://Cloud.tres" id="21_rosuu"]
+[ext_resource type="Script" path="res://Cloud2.gd" id="22_2l2yj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaouc"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cjkd"]
+render_priority = 1
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5u0uo"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7isw6"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ld8lj"]
+render_priority = 0
+next_pass = ExtResource("6_f2mwg")
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 10.4
+shader_parameter/wave_scale = 30.454
+shader_parameter/random_scale = 30.6
+shader_parameter/noise_scale = 0.01
+
+[sub_resource type="Environment" id="Environment_v81vl"]
+background_mode = 1
+background_color = Color(0.231373, 0.603922, 0.737255, 1)
+sky_custom_fov = 74.3
+ssao_radius = 11.35
+ssao_intensity = 8.9
+ssao_horizon = 1.0
+ssil_sharpness = 0.0
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_bloom = 0.59
+glow_blend_mode = 0
+fog_light_color = Color(0.776471, 0.388235, 0.67451, 1)
+fog_light_energy = 0.07
+volumetric_fog_enabled = true
+volumetric_fog_length = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oehw"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.21
+
+[node name="Root" type="Node3D"]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.928978, -0.17142, 0.328049, 0, 0.886293, 0.463126, -0.370136, -0.430234, 0.823346, -6.40361, 4.04489, 6.20515)
+
+[node name="LaughterProgress" type="ProgressBar" parent="MainCamera"]
+offset_left = 53.0
+offset_top = 57.0
+offset_right = 1102.0
+offset_bottom = 84.0
+script = ExtResource("1_ruh3q")
+
+[node name="TimerText" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 24.0
+offset_right = 114.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MainCamera"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = -1.0
+offset_right = 114.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 17
+text = "残り時間
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDownText" type="Label" parent="MainCamera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText", "countDownText", "timer", "Door", "DoorLight", "DoorLight2", "RoomWindow", "WindowLight", "RoomLight")]
+script = ExtResource("1_ly0cm")
+progressbar = NodePath("../MainCamera/LaughterProgress")
+timerText = NodePath("../MainCamera/TimerText")
+countDownText = NodePath("../MainCamera/CountDownText")
+timer = NodePath("../Timer")
+Door = NodePath("../Door")
+DoorLight = NodePath("../DoorLight")
+DoorLight2 = NodePath("../DoorLight2")
+RoomWindow = NodePath("../Window")
+WindowLight = NodePath("../WindowLight")
+RoomLight = NodePath("../LightStand/RoomLight")
+
+[node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30714, 0, 1.71698)
+laughSpreadSpeed = 50.0
+laughPointSpeed = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(26.4016, 0, 0, 0, 2, 0, 0, 0, 31.1598, -1.22882, -2.02644, -3.70536)
+material_override = ExtResource("6_lj2re")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(26.4016, 0, 0, 0, 2, 0, 0, 0, 31.1598, -1.22882, 6.05841, -3.70536)
+material_override = ExtResource("6_f2mwg")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 5.71216, -11.2061, 1.31925, -4.78041)
+material_override = SubResource("ShaderMaterial_qaouc")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 9.36358, -11.7702, 1.31925, 4.24221)
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+surface_material_override/0 = SubResource("ShaderMaterial_1cjkd")
+
+[node name="Wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.589087, 0, 0, 0, -2.50021, 0, 0, 0, 2.83169, -11.7783, 3.80021, -0.729378)
+material_override = SubResource("ShaderMaterial_5u0uo")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0343851, 0.0315038, -4.09238, 5.37993e-05, -22.1735, -0.00581232, 0.578111, 0.000189739, 0.243408, -9.88733, 1.31924, -7.59908)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0346369, 0.0315092, -3.71394, 5.41933e-05, -22.1773, -0.00527482, 0.582344, 0.000189771, 0.220899, -4.01882, 1.31924, -7.59908)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.000195654, -22.177, -0.0204427, -0.0346364, -0.122082, 3.71388, 0.582344, 0.000189771, 0.220899, -4.00823, 5.12899, -7.52698)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.000195654, -22.177, -0.0204427, -0.0346364, -0.122082, 3.71388, 0.582344, 0.000189771, 0.220899, -4.12293, -0.269877, -6.71083)
+material_override = SubResource("ShaderMaterial_7isw6")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -16.4272, 1.31924, -4.54564)
+material_override = ExtResource("7_m121n")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.55389, 0, -0.284041, 0, -26.8344, 0, 0.00636131, 0, -24.7319, -2.01758, 1.27886, -2.89561)
+material_override = SubResource("ShaderMaterial_ld8lj")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="FloorTiles2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 0.51183)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 2.71012)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 4.99633)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 7.33342)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 9.65335)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -10.9807)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles8" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -8.78244)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("6_lj2re")
+surface_material_override/1 = ExtResource("6_lj2re")
+surface_material_override/2 = ExtResource("6_lj2re")
+
+[node name="FloorTiles9" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -6.49624)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles10" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -4.15914)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="FloorTiles11" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -1.83922)
+mesh = ExtResource("5_1j40x")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.997227, 0.00110426, 0.0744058, 0.000886191, 0.999995, -0.00296356, -0.0744087, -0.0028894, -0.997224, -11.5047, -0.351024, -1.12113)
+mesh = ExtResource("7_gcqta")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door"]
+stream = ExtResource("9_jkth0")
+
+[node name="FirePlace" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.45123, 0, 0, 0, 1.45123, 0, 0, 0, 1.45123, -9.88206, -0.482966, -5.13016)
+mesh = ExtResource("9_t4o0c")
+
+[node name="Carpet" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.60058, 0, -0.0211826, 0, 1, 0, 0.0315013, 0, 1.74873, -5.11271, -0.544737, 1.39913)
+mesh = ExtResource("10_723ts")
+
+[node name="TableWithOneCloths" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71422, 0, 4.44176)
+mesh = ExtResource("11_y57of")
+
+[node name="VerticalBarrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -3.13492, -0.00353026, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.09092, 0.0246072, -5.42674)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -5.34052, -0.00353026, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -4.82462, 1.38274, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="VerticalBarrel5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95597, 0, 0, 0, 1.95597, 0, 0, 0, 1.95597, -3.7172, 1.38274, -5.36571)
+mesh = ExtResource("12_s873t")
+
+[node name="Bar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38243, -1.19209e-07, -1.49655)
+mesh = ExtResource("13_0ospq")
+
+[node name="DoorLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5357, 0.453972, -0.942091)
+light_color = Color(1, 0.827451, 0, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+light_specular = 16.0
+shadow_enabled = true
+omni_range = 10.65
+
+[node name="DoorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0895, 0.226986, -1.45763)
+light_color = Color(1, 0.827451, 0, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 16.0
+shadow_enabled = true
+omni_range = 10.65
+
+[node name="BurningWood" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.82501, -0.33008, -4.96898)
+mesh = ExtResource("14_sga5x")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(5.10803, 0, 0, 0, 3.86582, 0, 0, 0, 9.26103, -6.49763, 1.70396, 0)
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v81vl")
+
+[node name="LightStand" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.46683, 0, 0, 0, 2.46683, 0, 0, 0, 2.46683, -4.88628, 5.63606, -1.39995)
+material_override = SubResource("StandardMaterial3D_4oehw")
+cast_shadow = 0
+mesh = ExtResource("18_ra7ls")
+
+[node name="RoomLight" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, -0.289219, -0.632035, -0.0315531)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight2" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.00988412, -0.632035, -0.251545)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight3" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.278402, -0.632035, -0.0199477)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight4" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.0532813, -0.555799, 0.287956)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="Window" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8928, 0.662174, -7.58063)
+mesh = ExtResource("19_4kdbk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Window"]
+stream = ExtResource("20_jb7dj")
+volume_db = 1.0
+
+[node name="Cloud" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -4.81174, 4.76837e-07, -48.415)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -1.06814, -2.5792, -37.5985)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 1.32731, 1.51726, -39.8855)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -0.324403, 1.51726, -51.5948)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.8146, 1.51726, -51.5948)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -16.6209, 1.51726, -71.1201)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.1321, 6.33511, -71.1201)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -10.1321, -2.67879, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -18.2899, -2.67879, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -18.2899, 1.50745, -52.546)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -12.1521, 1.50745, -37.959)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -12.1521, 1.50745, -80.5109)
+material_override = ExtResource("21_rosuu")
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, -21.9739, 1.50745, -80.5109)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud16" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0191996, 0, -0.86087, 0, 0.538858, 0, 0.522107, 0, -0.0316569, -21.9739, 1.50745, -80.5109)
+mesh = ExtResource("20_wcpn2")
+surface_material_override/0 = ExtResource("21_rosuu")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 0.123335, 5.52419, -41.5187)
+mesh = ExtResource("20_wcpn2")
+script = ExtResource("22_2l2yj")
+
+[node name="Cloud5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.145578, 0, -0.827335, 0, 0.538858, 0, 0.501769, 0, 0.240034, 0.614099, 4.96824, -61.117)
+mesh = ExtResource("20_wcpn2")
+script = ExtResource("22_2l2yj")
+
+[node name="WindowLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.5, -7)
+light_energy = 0.0
+
+[connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
+[connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]

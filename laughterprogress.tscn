@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djxyi5y0r0agf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+value = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

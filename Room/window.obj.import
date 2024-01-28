@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhaigb0ijcsyu"
+path="res://.godot/imported/window.obj-174d57ea6cfea078f2d23c157ba8f4a6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/window.obj-174d57ea6cfea078f2d23c157ba8f4a6.mesh"]
+
+source_file="res://Room/window.obj"
+dest_files=["res://.godot/imported/window.obj-174d57ea6cfea078f2d23c157ba8f4a6.mesh", "res://.godot/imported/window.obj-174d57ea6cfea078f2d23c157ba8f4a6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

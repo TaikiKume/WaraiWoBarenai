@@ -10,10 +10,37 @@ config_version=5
 
 [application]
 
-config/name="Warai Wo Barenai"
+config/name="Don't Stop My Laughter"
+config/name_localized={
+"ja_JP": "俺の笑いを止めるな"
+}
+config/version="1.0"
+run/main_scene="res://Title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
-[rendering]
+[autoload]
 
-renderer/rendering_method="mobile"
+Global="*res://global.gd"
+
+[filesystem]
+
+import/fbx/enabled=false
+
+[importer_defaults]
+
+wavefront_obj={
+"force_disable_mesh_compression": false,
+"generate_tangents": true,
+"offset_mesh": Vector3(0, 0, 0),
+"optimize_mesh": true,
+"scale_mesh": Vector3(1, 1, 1)
+}
+
+[input]
+
+Laugh={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
+]
+}
