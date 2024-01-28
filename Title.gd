@@ -3,6 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	Global.level = 0
 	radioButton.button_pressed=true
 
 func _on_restart_button_pressed():
