@@ -22,6 +22,8 @@ var count : int =0
 @export var DoorLight2 : OmniLight3D
 @export var RoomLight : OmniLight3D
 
+signal game_startNotify 
+
 var DoorBroken : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -54,9 +56,11 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://game_over.tscn")
 		
 	if laughRadius>0.1:
-		RoomLight.light_energy += 1*delta
-		RoomLight.light_color.h += delta
+		if(RoomLight.light_energy<2):
+			RoomLight.light_energy += 1*delta
+		RoomLight.light_color.h += 0.1*delta
 		RoomLight.light_color.s += delta
+		
 	else:
 		RoomLight.light_energy = 1
 		RoomLight.light_color.h = 0
@@ -107,3 +111,4 @@ func _on_timer_timeout():
 		timer.paused=true;
 		countDownText.hide()
 		isStartGame=true;
+		game_startNotify.emit()

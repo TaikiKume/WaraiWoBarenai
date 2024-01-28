@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=18 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -17,6 +17,10 @@
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
+
+[sub_resource type="Environment" id="Environment_v81vl"]
+volumetric_fog_enabled = true
+volumetric_fog_length = 1.0
 
 [node name="Root" type="Node3D"]
 
@@ -77,9 +81,6 @@ text = "3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainCamera"]
-transform = Transform3D(0.578188, -0.783303, 0.228332, 0.693838, 0.619284, 0.367528, -0.429288, -0.0540749, 0.901548, 37.1346, -0.0656493, -0.010221)
-
 [node name="LevelController" type="Node" parent="." node_paths=PackedStringArray("progressbar", "timerText", "countDownText", "timer", "Door", "DoorLight", "DoorLight2", "RoomLight")]
 script = ExtResource("1_ly0cm")
 progressbar = NodePath("../MainCamera/LaughterProgress")
@@ -126,8 +127,20 @@ material_override = ExtResource("6_f2mwg")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
+[node name="Wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.589087, 0, 0, 0, -2.50021, 0, 0, 0, 2.83169, -11.7783, 3.80021, -0.729378)
+material_override = ExtResource("6_f2mwg")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
 [node name="Wall2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -6.32489, 1.31924, -6.82183)
+material_override = ExtResource("6_f2mwg")
+mesh = SubResource("BoxMesh_d7e1t")
+skeleton = NodePath("../FloorTiles10")
+
+[node name="Wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -16.4272, 1.31924, -4.54564)
 material_override = ExtResource("6_f2mwg")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
@@ -209,7 +222,7 @@ surface_material_override/1 = ExtResource("6_lj2re")
 surface_material_override/2 = ExtResource("6_lj2re")
 
 [node name="Door" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5054, -0.351024, -1.11766)
+transform = Transform3D(-0.997227, 0.00110426, 0.0744058, 0.000886191, 0.999995, -0.00296356, -0.0744087, -0.0028894, -0.997224, -11.5047, -0.351024, -1.12113)
 mesh = ExtResource("7_gcqta")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door"]
@@ -273,16 +286,21 @@ shadow_enabled = true
 omni_range = 10.65
 
 [node name="RoomLight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58368, 4.36139, -1.36843)
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_size = 1.0
-light_specular = 16.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73296, 4.41729, -1.49709)
+light_volumetric_fog_energy = 2.293
+light_specular = 15.305
 shadow_enabled = true
-omni_range = 10.65
+omni_range = 31.896
 
 [node name="BurningWood" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.203, 0, -4.64135)
 mesh = ExtResource("14_sga5x")
 
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(5.10803, 0, 0, 0, 3.86582, 0, 0, 0, 9.26103, -6.49763, 1.70396, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v81vl")
+
+[connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]

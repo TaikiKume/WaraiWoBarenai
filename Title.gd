@@ -1,20 +1,24 @@
 extends Node2D
-
-
+@export var radioButton : CheckBox
 # Called when the node enters the scene tree for the first time.
 
-
+func _ready():
+	radioButton.button_pressed=true
 
 func _on_restart_button_pressed():
+	$AudioStreamPlayer2.play()
 	get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_check_box_toggled(toggled_on):
+	$AudioStreamPlayer2.play()
 	if toggled_on:
 		Global.difficulty=0;
+	
 
 
 func _on_check_box_2_toggled(toggled_on):
+		$AudioStreamPlayer2.play()
 		Global.difficulty=1;
 
 
