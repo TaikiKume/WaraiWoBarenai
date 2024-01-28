@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Warai Wo Barenai"
+config/name="Don't Stop My Laughter"
+config/name_localized={
+"ja_JP": "俺の笑いを止めるな"
+}
+config/version="1.0"
 run/main_scene="res://Title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
