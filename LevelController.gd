@@ -22,7 +22,6 @@ var count : int =0
 @export var DoorLight2 : OmniLight3D
 @export var RoomWindow : MeshInstance3D
 @export var WindowLight : OmniLight3D
-@export var WindowLight2 : OmniLight3D
 @export var RoomLight : OmniLight3D
 
 signal game_startNotify
