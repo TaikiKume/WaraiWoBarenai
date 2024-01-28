@@ -75,7 +75,7 @@ func _process(delta):
 			RoomLight.light_color.h += 0.5*delta
 			RoomLight.light_color.s =0.3
 		else:
-			RoomLight.light_energy = 1
+			RoomLight.light_energy = 0.05
 			RoomLight.light_color.h = 0
 			RoomLight.light_color.s = 0
 

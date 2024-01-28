@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=26 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://bia0fnsj18xdo" path="res://Wall.tres" id="6_f2mwg"]
 [ext_resource type="Material" uid="uid://3oaiowhgr21g" path="res://wood.tres" id="6_lj2re"]
 [ext_resource type="ArrayMesh" uid="uid://rji00jcpuitl" path="res://Room/door.obj" id="7_gcqta"]
-[ext_resource type="Material" path="res://m2/materials/concrete_hd/concrete.tres" id="7_m121n"]
+[ext_resource type="Material" path="res://materials/concrete_hd/concrete.tres" id="7_m121n"]
 [ext_resource type="AudioStream" uid="uid://b4rreeeq16jen" path="res://se/explosion-6055.mp3" id="9_jkth0"]
 [ext_resource type="ArrayMesh" uid="uid://bqnd78pbcru5f" path="res://Room/fire_place.obj" id="9_t4o0c"]
 [ext_resource type="Material" uid="uid://bfrb8vc3v5v7a" path="res://darkwood.tres" id="9_y0n1d"]
@@ -17,6 +17,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bqkm77gv8x5w5" path="res://Room/vertical_barrel.obj" id="12_s873t"]
 [ext_resource type="ArrayMesh" uid="uid://bu5clsnve5y8f" path="res://Room/bar.obj" id="13_0ospq"]
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
+[ext_resource type="ArrayMesh" uid="uid://dj36qowj3cagg" path="res://LightStand.obj" id="18_ra7ls"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
 
@@ -81,7 +82,9 @@ sdfgi_read_sky_light = false
 glow_enabled = true
 glow_bloom = 0.59
 glow_blend_mode = 0
+fog_enabled = true
 fog_light_color = Color(0.392157, 0.596078, 0.568627, 1)
+fog_light_energy = 0.07
 volumetric_fog_enabled = true
 volumetric_fog_length = 1.0
 
@@ -153,7 +156,7 @@ timer = NodePath("../Timer")
 Door = NodePath("../Door")
 DoorLight = NodePath("../DoorLight")
 DoorLight2 = NodePath("../DoorLight2")
-RoomLight = NodePath("../RoomLight")
+RoomLight = NodePath("../LightStand/RoomLight")
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30714, 0, 1.71698)
@@ -345,13 +348,6 @@ light_specular = 16.0
 shadow_enabled = true
 omni_range = 10.65
 
-[node name="RoomLight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73296, 4.41729, -1.49709)
-light_volumetric_fog_energy = 0.0
-light_specular = 15.305
-shadow_enabled = true
-omni_range = 31.896
-
 [node name="BurningWood" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.203, 0, -4.64135)
 mesh = ExtResource("14_sga5x")
@@ -362,6 +358,43 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v81vl")
+
+[node name="LightStand" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.46683, 0, 0, 0, 2.46683, 0, 0, 0, 2.46683, -6.93138, 5.63606, -1.39995)
+cast_shadow = 0
+mesh = ExtResource("18_ra7ls")
+
+[node name="RoomLight" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, -0.289219, -0.632035, -0.0315531)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight2" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.00988412, -0.632035, -0.251545)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight3" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.278402, -0.632035, -0.0199477)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
+
+[node name="RoomLight4" type="OmniLight3D" parent="LightStand"]
+transform = Transform3D(0.405378, 0, 0, 0, 0.405378, 0, 0, 0, 0.405378, 0.0532813, -0.555799, 0.287956)
+light_energy = 0.05
+light_volumetric_fog_energy = 0.0
+light_specular = 15.305
+shadow_enabled = true
+omni_range = 31.896
 
 [connection signal="game_startNotify" from="LevelController" to="LevelController/Player" method="_on_level_controller_game_start_notify"]
 [connection signal="timeout" from="Timer" to="LevelController" method="_on_timer_timeout"]
