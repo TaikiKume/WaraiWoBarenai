@@ -15,7 +15,6 @@ var is_alerted : bool = false
 var relax_timer : float = 0.0
 
 func _ready():
-	print("ready")
 	print(get_child_count())
 	transform.origin = stomp_away_direction * initial_distance
 	for child in get_children(true):
@@ -23,7 +22,6 @@ func _ready():
 	pass
 
 func _process(delta: float) -> void:
-	print("process")
 	var can_hear: bool = get_parent().laughRadius > global_transform.origin.distance_to(Vector3.ZERO)
 	var is_in_room: bool = global_transform.origin.distance_to(Vector3.ZERO) < room_burst_distance
 	if can_hear:
