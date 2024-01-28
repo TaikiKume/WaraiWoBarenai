@@ -1,14 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=25 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
 [ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
 [ext_resource type="ArrayMesh" uid="uid://0rxedu130skt" path="res://Room/floor_tiles.obj" id="5_1j40x"]
+[ext_resource type="Shader" path="res://testwood.gdshader" id="6_45s26"]
 [ext_resource type="Material" uid="uid://bia0fnsj18xdo" path="res://Wall.tres" id="6_f2mwg"]
 [ext_resource type="Material" uid="uid://3oaiowhgr21g" path="res://wood.tres" id="6_lj2re"]
 [ext_resource type="ArrayMesh" uid="uid://rji00jcpuitl" path="res://Room/door.obj" id="7_gcqta"]
+[ext_resource type="Material" path="res://m2/materials/concrete_hd/concrete.tres" id="7_m121n"]
 [ext_resource type="AudioStream" uid="uid://b4rreeeq16jen" path="res://se/explosion-6055.mp3" id="9_jkth0"]
 [ext_resource type="ArrayMesh" uid="uid://bqnd78pbcru5f" path="res://Room/fire_place.obj" id="9_t4o0c"]
+[ext_resource type="Material" uid="uid://bfrb8vc3v5v7a" path="res://darkwood.tres" id="9_y0n1d"]
 [ext_resource type="ArrayMesh" uid="uid://b8c1btglkynfs" path="res://Room/carpet.obj" id="10_723ts"]
 [ext_resource type="ArrayMesh" uid="uid://bywsatnvbheiu" path="res://Room/table_with_one_cloths.obj" id="11_y57of"]
 [ext_resource type="ArrayMesh" uid="uid://bqkm77gv8x5w5" path="res://Room/vertical_barrel.obj" id="12_s873t"]
@@ -16,6 +19,57 @@
 [ext_resource type="ArrayMesh" uid="uid://b5erpdp1ekyln" path="res://Room/burning_wood.obj" id="14_sga5x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d7e1t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaouc"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cjkd"]
+render_priority = 1
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5u0uo"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7isw6"]
+render_priority = 0
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 4.4
+shader_parameter/wave_scale = 8.454
+shader_parameter/random_scale = 4.6
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ld8lj"]
+render_priority = 0
+next_pass = ExtResource("6_f2mwg")
+shader = ExtResource("6_45s26")
+shader_parameter/light_color = Vector4(0.952941, 0.858824, 0.74902, 1)
+shader_parameter/dark_color = Vector4(0.74902, 0.619608, 0.490196, 1)
+shader_parameter/ring_scale = 10.4
+shader_parameter/wave_scale = 30.454
+shader_parameter/random_scale = 30.6
+shader_parameter/noise_scale = 0.01
 
 [sub_resource type="Environment" id="Environment_v81vl"]
 volumetric_fog_enabled = true
@@ -113,67 +167,67 @@ skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 5.71216, -11.2061, 1.31925, -4.78041)
-material_override = ExtResource("6_f2mwg")
+material_override = SubResource("ShaderMaterial_qaouc")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.589087, 0, 0, 0, -29.6164, 0, 0, 0, 9.36358, -11.7702, 1.31925, 4.24221)
-material_override = ExtResource("6_f2mwg")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
+surface_material_override/0 = SubResource("ShaderMaterial_1cjkd")
 
 [node name="Wall5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.589087, 0, 0, 0, -2.50021, 0, 0, 0, 2.83169, -11.7783, 3.80021, -0.729378)
-material_override = ExtResource("6_f2mwg")
+material_override = SubResource("ShaderMaterial_5u0uo")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -6.32489, 1.31924, -6.82183)
-material_override = ExtResource("6_f2mwg")
+material_override = SubResource("ShaderMaterial_7isw6")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0333711, 0, -9.84841, 0, -30.1549, 0, 0.562694, 0, 0.584068, -16.4272, 1.31924, -4.54564)
-material_override = ExtResource("6_f2mwg")
+material_override = ExtResource("7_m121n")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="Wall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.55389, 0, -0.284041, 0, -26.8344, 0, 0.00636131, 0, -24.7319, -2.01758, 1.27886, -2.89561)
-material_override = ExtResource("6_f2mwg")
+material_override = SubResource("ShaderMaterial_ld8lj")
 mesh = SubResource("BoxMesh_d7e1t")
 skeleton = NodePath("../FloorTiles10")
 
 [node name="FloorTiles2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 0.51183)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles3" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 2.71012)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles4" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 4.99633)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles5" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 7.33342)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles6" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, 9.65335)
@@ -199,23 +253,23 @@ surface_material_override/2 = ExtResource("6_lj2re")
 [node name="FloorTiles9" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -6.49624)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles10" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -4.15914)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="FloorTiles11" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.79669, -1.01223, -1.83922)
 mesh = ExtResource("5_1j40x")
-surface_material_override/0 = ExtResource("6_lj2re")
-surface_material_override/1 = ExtResource("6_lj2re")
-surface_material_override/2 = ExtResource("6_lj2re")
+surface_material_override/0 = ExtResource("9_y0n1d")
+surface_material_override/1 = ExtResource("9_y0n1d")
+surface_material_override/2 = ExtResource("9_y0n1d")
 
 [node name="Door" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.997227, 0.00110426, 0.0744058, 0.000886191, 0.999995, -0.00296356, -0.0744087, -0.0028894, -0.997224, -11.5047, -0.351024, -1.12113)
@@ -294,6 +348,7 @@ mesh = ExtResource("14_sga5x")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(5.10803, 0, 0, 0, 3.86582, 0, 0, 0, 9.26103, -6.49763, 1.70396, 0)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v81vl")
