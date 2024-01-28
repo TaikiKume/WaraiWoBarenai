@@ -72,10 +72,10 @@ func _process(delta):
 
 		if laughRadius>0.1:
 			if(RoomLight.light_energy<2):RoomLight.light_energy += 1*delta
-			RoomLight.light_color.h += 0.1*delta
-			RoomLight.light_color.s += delta
+			RoomLight.light_color.h += 0.5*delta
+			RoomLight.light_color.s =0.3
 		else:
-			RoomLight.light_energy = 1
+			RoomLight.light_energy = 0.05
 			RoomLight.light_color.h = 0
 			RoomLight.light_color.s = 0
 
