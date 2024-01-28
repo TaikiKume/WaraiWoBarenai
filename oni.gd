@@ -1,18 +1,29 @@
 extends StaticBody3D
 
 @export var speed : float = 10.0
-@export var stomping_sound_timer : float = 0.0
+@export var alert_speed_mult : float = 1.0
 @export var stomping_sound_interval : float = 0.5 
 @export var stomp_away_direction : Vector3 = Vector3(-1,0,0)
 @export var initial_distance : float = 100
 @export var relax_interval : float = 5.0
 @export var room_burst_distance : float = 10.0
-@export var max_distance : float =240
+@export var max_distance : float = 240
+
+var stomping_sound_timer : float = 0.0
 
 var is_alerted : bool = false
 var relax_timer : float = 0.0
 
+func _ready():
+	print("ready")
+	print(get_child_count())
+	transform.origin = stomp_away_direction * initial_distance
+	for child in get_children(true):
+		print(child)
+	pass
+
 func _process(delta: float) -> void:
+	print("process")
 	var can_hear: bool = get_parent().laughRadius > global_transform.origin.distance_to(Vector3.ZERO)
 	var is_in_room: bool = global_transform.origin.distance_to(Vector3.ZERO) < room_burst_distance
 	if can_hear:
@@ -35,7 +46,7 @@ func _process(delta: float) -> void:
 	if (is_in_room and relax_timer > 0) or (global_transform.origin.distance_to(Vector3.ZERO) > max_distance and not is_alerted) :
 		move_speed = 0
 	elif is_alerted:
-		move_speed = speed * 2.0 
+		move_speed = speed * alert_speed_mult 
 	else :
 		move_speed =speed
 
@@ -44,19 +55,13 @@ func _process(delta: float) -> void:
 	stomping_sound_timer += delta
 	if move_speed > 0:
 		$SophiaSkin.move()
-		if stomping_sound_timer >= stomping_sound_interval / ( 2.0 if is_alerted else 1.0):
+		if stomping_sound_timer >= stomping_sound_interval / ( alert_speed_mult if is_alerted else 1.0):
 			play_stomping_sound()
 			stomping_sound_timer = 0.0
 	else : 
 		$SophiaSkin.idle()
-	print(transform)
 
 func play_stomping_sound() -> void:
 	var volume : float = 1.0 if is_alerted else 0.5
 	$Step.volume_db = volume * 20.0
 	$Step.play()
-
-func _ready():
-	transform.origin = stomp_away_direction * initial_distance
-	$SophiaSkin.move()
-	pass

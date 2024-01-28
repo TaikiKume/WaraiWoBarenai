@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdr6u28mxy1nk"]
+[gd_scene load_steps=17 format=3 uid="uid://bdr6u28mxy1nk"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_ly0cm"]
 [ext_resource type="Script" path="res://LaughterProgress.gd" id="1_ruh3q"]
-[ext_resource type="PackedScene" uid="uid://btfwplr3egwdi" path="res://oni.tscn" id="2_58pul"]
 [ext_resource type="PackedScene" uid="uid://deoyko10lrx6b" path="res://player.tscn" id="3_516bt"]
 [ext_resource type="ArrayMesh" uid="uid://0rxedu130skt" path="res://Room/floor_tiles.obj" id="5_1j40x"]
 [ext_resource type="Material" uid="uid://bia0fnsj18xdo" path="res://Wall.tres" id="6_f2mwg"]
@@ -91,9 +90,6 @@ Door = NodePath("../Door")
 DoorLight = NodePath("../DoorLight")
 DoorLight2 = NodePath("../DoorLight2")
 RoomLight = NodePath("../RoomLight")
-
-[node name="Oni" parent="LevelController" instance=ExtResource("2_58pul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.452986, 0, 0)
 
 [node name="Player" parent="LevelController" instance=ExtResource("3_516bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30714, 0, 1.71698)

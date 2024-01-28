@@ -11,16 +11,19 @@ func _on_restart_button_pressed():
 
 
 func _on_check_box_toggled(toggled_on):
-	$AudioStreamPlayer2.play()
 	if toggled_on:
+		$AudioStreamPlayer2.play()
 		Global.difficulty=0;
-	
+
 
 
 func _on_check_box_2_toggled(toggled_on):
+	if toggled_on:
 		$AudioStreamPlayer2.play()
 		Global.difficulty=1;
 
 
 func _on_check_box_3_toggled(toggled_on):
+	if toggled_on:
+		$AudioStreamPlayer2.play()
 		Global.difficulty=2;
